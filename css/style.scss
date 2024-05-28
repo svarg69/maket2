@@ -1,0 +1,96 @@
+$bebas:"Bebas Neue", sans-serif;
+$openSans:"Open Sans", sans-serif;
+
+
+body{
+    font-family: $openSans;
+    font-size: 23px;
+    line-height: 177%;
+    letter-spacing: 0.01em;
+    color: #48555b;
+}
+
+.container{
+    max-width: 970px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    // мы добавили 30 px паддинга к мак видтх так как поставили бокс сайзингчтобы сохранить макетность
+    
+}
+
+// пэшку завернули в див, и ей уберем марджиниы снизу и сверху чтобы на сиэмс в админке при редактировании рукожопы не сломали нашу супер верстку
+// 100dvh динамическая высота - для мобил с челкой
+
+.logo{
+    height: 23px;
+    img{
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+.hero{
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+       &__row{
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4dvh 0 8dvh;
+        box-sizing: border-box;
+        // height: calc (100dvv- 68px) нижнему хедеру с нав меню с высотой 68пкс
+        // чтоб он был снизу виден книзу, а ему позишн стики топ ноль лефт ноль
+        // 
+    }
+    &__center{
+        color: #fff;
+        text-align: center;
+
+
+    }
+    &__title{
+        font-family: $bebas;
+        font-weight: 400;
+        font-size: 60px;
+        letter-spacing: 0.1em;
+        margin: 0 0 2dvh 0;
+        
+    }
+    &__desc{
+        font-weight: 600;
+        font-size: 16px;
+        color: #fff;
+        
+        
+        > *:first-child{
+            margin-top: 0;
+        }
+        > *:last-child{
+            margin-bottom: 0;
+        }
+
+    }
+    &__scroll{
+        color: #fff;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 0.34em;
+        animation: scroll 4s infinite forwards;
+    }
+}
+
+@keyframes scroll{
+    0% {
+        transform: translateY(-20px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(-20px);
+    }
+}
