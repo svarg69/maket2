@@ -33,6 +33,33 @@ body{
         max-width: 100%;
     }
 }
+
+.btn{
+    border: none;
+    text-decoration: none;
+    outline: none;
+    background-color: #00a4e5;
+    color: #fff;
+    transition: .3s;
+    min-width: 150px;
+    padding: 13.5px 10px;
+    box-sizing: border-box;
+    display: inline-flex;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.7;
+    }
+    // обнуляем стили для всех кнопок на будущее
+}
+
+
+
+
 .hero{
     background-image: url(../img/bg.jpg);
     background-repeat: no-repeat;
@@ -261,4 +288,175 @@ body{
     }
 
 }
+
+.section-head{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 76px;
+
+
+    &__desc{
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 173%;
+    max-width: 406px;
+    margin-left: auto;
+    margin-right: 32px;
+    // не используем джастифай контент чтобы было по макету - 
+    // так как центральный и првавый блоки прижаты вправо
+    }
+}
+
+.capab{
+    padding: 59px 0;
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        margin: -14px;
+    }
+    &__col{
+        padding: 14px;
+        box-sizing: border-box;
+        width: 33.3%;
+    }
+}
+
+.capab-item{
+    padding: 38px 20px;
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+    height: 100%;
+    // хейт 100% задали чтобы флексовыя колонка растянулась в случае
+    // с добавлением текста чтобы колонки расширились одинаково
+    &__icon{
+        height: 75px;
+        width: 65px;
+        margin-bottom: 25px;
+    }
+    &__title{
+        margin: 0 0 13px 0;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0.03em;
+    }
+    &__desc{
+        margin: 0 0 13px 0;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0.01em;
+    }
+}
+
+.offer{
+    background-image: url(../img/offerbg.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    padding: 120px 0 232px;
+    margin-top: 56px;
+    text-align: center;
+    position: relative;
+
+    &:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        // чтоб при уменьшении картинка не обрезалась сверху
+        // а красиво уходила в градиент
+    }
+    
+
+    &__title{
+        max-width: 350px;
+        margin: 0 auto 35px;
+        font-size: 30px;
+        line-height: 120%;
+        letter-spacing: 0.01em;
+        
+    }
+
+}
+
+.subscribe{
+    background-color: #171819;
+    padding: 30px 0;
+
+    &__row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 70px;
+    }
+
+    &__title {
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        text-align: center;
+        color: #fff;
+    }
+
+    &__form{
+        display: flex;
+    }
+
+    &__input{
+        outline: none;
+        border: 1px solid #979797;
+        background-color: #fff;
+        padding: 0 16px;
+        box-sizing: border-box;
+        font-size: 14px;
+        letter-spacing: 0.01em;
+        color: #48555b;
+        // паддинг препятствует прилипанию текста справа при переполнении формы
+        // длинным емаилом
+
+    }
+}
+
+
+.footer{
+    padding: 42px 0 50px;
+    background-color: #141a20;
+
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        margin: -14px;
+    }
+    &__col{
+        padding: 14px;
+        box-sizing: border-box;
+        &--w33{
+            width: 33.3%;
+        }
+        &--w16{
+            width: 16.6%;
+        }
+    }
+
+    &__list{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        columns: 3;
+        
+        a{
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 227%;
+            letter-spacing: 0.08em;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}
+
 
