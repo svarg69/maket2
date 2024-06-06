@@ -71,7 +71,7 @@ body{
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding: 4dvh 0 8dvh;
+        padding: 4.7dvh 0 7.1dvh;
         box-sizing: border-box;
         // height: calc (100dvv- 68px) нижнему хедеру с нав меню с высотой 68пкс
         // чтоб он был снизу виден книзу, а ему позишн стики топ ноль лефт ноль
@@ -80,6 +80,7 @@ body{
     &__center{
         color: #fff;
         text-align: center;
+        padding-top: 15dvh;
 
 
     }
@@ -88,7 +89,7 @@ body{
         font-weight: 400;
         font-size: 60px;
         letter-spacing: 0.1em;
-        margin: 0 0 2dvh 0;
+        margin: 0 0 0.5dvh 0;
         
     }
     &__desc{
@@ -297,6 +298,7 @@ body{
 
     &__desc{
     font-weight: 400;
+    letter-spacing: 0.02em;
     font-size: 11px;
     line-height: 173%;
     max-width: 406px;
@@ -309,6 +311,7 @@ body{
 
 .capab{
     padding: 59px 0;
+    box-sizing: border-box;
     &__row{
         display: flex;
         flex-wrap: wrap;
@@ -422,8 +425,13 @@ body{
 
 
 .footer{
-    padding: 42px 0 50px;
+    
     background-color: #141a20;
+    
+    > .container{
+        padding: 42px 15px 50px;
+    }
+
 
     &__row{
         display: flex;
@@ -441,11 +449,24 @@ body{
         }
     }
 
+    &__menu{
+        margin-top: -15px;
+    }
+
+
+    &__title{
+        color: #fff;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+    }
+
     &__list{
         padding: 0;
         margin: 0;
         list-style: none;
         columns: 3;
+        line-height: 1;
         
         a{
             font-size: 11px;
@@ -457,6 +478,182 @@ body{
             text-transform: uppercase;
         }
     }
+
+    &__title{
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        margin: 0 0 15px 0;
+        
+    }
+    &__logo{
+        margin-bottom: 15px;
+    }
+
+    &__desc{
+        font-size: 11px;
+        line-height: 173%;
+        letter-spacing: 0.08em;
+        color: #fff;
+    }
+
+    &__info{
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 145%;
+    letter-spacing: 0.08em;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+    p{
+        margin: 0;
+    }
+
+    a{
+        color: #fff;
+        text-decoration: none;
+        &:hover{
+            color: greenyellow;
+        }
+    }
+
+    }
+    &__social{
+        padding-top: 30px;
+    }
 }
+
+.social{
+    &__list{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        gap: 25px;
+    }
+
+}
+
+.copyright{
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #fff; 
+    background-color: #171819;   
+    padding: 22px 0;
+    text-align: center;
+}
+
+
+@media (max-width:1024px){
+    .section-head{
+        margin-bottom: 40px;
+        flex-direction: column;
+
+        &__desc{
+            margin: 25px 0 10px;
+        }
+    }
+}
+
+@media (max-width:768px){
+    .footer{
+        &__col--w33{
+            width: 50%;
+        }
+        &__col--w16{
+            width: 100%;
+        }
+        &__col{
+            padding: 5px 14px;
+        }
+        &__row{
+            margin: -5px -14px;
+        }
+        &__social{
+            padding-top: 0;
+        }
+        &__title{
+            line-height: normal;
+        }
+        &__menu{
+            margin-top: 0;
+        }
+
+        > .container{
+            padding: 20px 15px;
+        }
+    }
+
+    .copyright{
+        padding: 10px 0;
+    }
+
+    .capab{
+        position: relative;
+        overflow: hidden;
+        padding: 30px 0;
+        &__row{
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            margin: 0 -15px;
+            padding: 0 15px;
+            gap: 10px;
+            &::-webkit-scrollbar{
+                background-color: transparent;
+                width: 0;
+            }
+        }
+        &__col{
+            width: 300px;
+            flex-shrink: 0;
+            padding: 0;
+        }
+    }
+
+    .hero{
+        &__title{
+            font-size: 40px;
+            line-height: 1.2;
+        }
+    }
+
+    .story{
+        padding: 30px 0;
+        &__row{
+            margin-top: 40px;
+            flex-direction: column;
+            gap: 30px;
+            
+        }
+        &__left,
+        &__right{
+            width: 100%;
+        }
+    }
+
+    .text__content{
+        h3,
+        p{
+            margin: 15px 0;
+        }
+    }
+
+    .subscribe{
+        &__row{
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+}
+
+
+
 
 
