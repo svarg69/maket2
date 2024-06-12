@@ -1,6 +1,5 @@
-$bebas:"Bebas Neue", sans-serif;
-$openSans:"Open Sans", sans-serif;
-
+$Bebas:"Bebas Neue", sans-serif;
+$openSans: "Open Sans", sans-serif;
 
 body{
     font-family: $openSans;
@@ -9,63 +8,57 @@ body{
     letter-spacing: 0.01em;
     color: #48555b;
 }
-
 .container{
     max-width: 970px;
     margin: 0 auto;
     padding: 0 15px;
-    box-sizing: border-box;
-    // мы добавили 30 px паддинга к мак видтх так как поставили бокс сайзингчтобы сохранить макетность
-    
+    box-sizing: border-box;   // так как поставили box-sizing добавялем паддинги (их 30пкс) к ширине
+    // p заворачиваем в див и уберем через класс див марджины сверху и снизу
+    // высота в dvh это динамическая единица высоты экрана(учитывает челку iphona), лучшее ее использовать
 }
-
-// пэшку завернули в див, и ей уберем марджиниы снизу и сверху чтобы на сиэмс в админке при редактировании рукожопы не сломали нашу супер верстку
-// 100dvh динамическая высота - для мобил с челкой
-
 .logo{
     display: flex;
     height: 23px;
     &--lit{
-        height:18px;
+        height: 18px;
     }
     img{
         max-height: 100%;
         max-width: 100%;
     }
 }
-
 .btn{
     border: none;
     text-decoration: none;
     outline: none;
-    background-color: #00a4e5;
+    background-color: #00A4E5;
     color: #fff;
     transition: .3s;
     min-width: 150px;
     padding: 13.5px 10px;
     box-sizing: border-box;
     display: inline-flex;
-    font-weight: 700;
+    // width: max-content; min-content
     font-size: 13px;
-    line-height: 1;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
+    line-height: 1;
     cursor: pointer;
     &:hover{
         opacity: 0.7;
+
     }
-    // обнуляем стили для всех кнопок на будущее
 }
 
-
-
-
 .hero{
-    background-image: url(../img/bg.jpg);
+    background-image: url(../images/hero.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-       &__row{
+    background-attachment: fixed;
+
+    &__row{
         height: calc(100dvh - 65px);
         display: flex;
         flex-direction: column;
@@ -73,50 +66,42 @@ body{
         align-items: center;
         padding: 4.7dvh 0 7.1dvh;
         box-sizing: border-box;
-        // height: calc (100dvv- 68px) нижнему хедеру с нав меню с высотой 68пкс
-        // чтоб он был снизу виден книзу, а ему позишн стики топ ноль лефт ноль
-        // 
     }
     &__center{
         color: #fff;
         text-align: center;
         padding-top: 15dvh;
-
-
     }
     &__title{
-        font-family: $bebas;
+        font-family: $Bebas;
         font-weight: 400;
         font-size: 60px;
         letter-spacing: 0.1em;
         margin: 0 0 0.5dvh 0;
-        
     }
     &__desc{
         font-weight: 600;
         font-size: 16px;
-        color: #fff;
-        
-        
+
         > *:first-child{
-            margin-top: 0;
+            margin-top: 0;    
         }
         > *:last-child{
             margin-bottom: 0;
         }
-
     }
     &__scroll{
-        color: #fff;
         font-weight: 600;
         font-size: 11px;
         letter-spacing: 0.34em;
-        animation: scroll 4s infinite forwards;
+        text-align: center;
+        color: #fff;
+        animation: ease-in-out scroll 3s infinite forwards;
     }
-}
 
+}
 @keyframes scroll{
-    0% {
+    0%{
         transform: translateY(-20px);
     }
     50%{
@@ -126,25 +111,26 @@ body{
         transform: translateY(-20px);
     }
 }
-
-.header {
-    height: 65px;
-    padding: 10px 0;
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
+.header{
+    position: sticky;
+    left: 0;
+    right: 0;
+    padding: 10px 0 10px;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
     box-sizing: border-box;
+    background-color: #fff;
+    z-index: 100;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 100;
-    background-color: #fff;
+
     &__row{
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
+    } 
 }
-
 .menu{
     &__list{
         margin: 0;
@@ -152,13 +138,10 @@ body{
         list-style: none;
         display: flex;
     }
-    &__item + &__item{
+    &__item + &__item{   
+        // применение свойств ко всем item кроем первого
         margin-left: 35px;
-        // ко всем кроме первого левый марджин
-        // можно сделать &__item:not(:last0child){марджин райт}
-        // всем кроме последнего правый марджин
     }
-
     &__link{
         font-weight: 600;
         font-size: 12px;
@@ -173,22 +156,21 @@ body{
         }
     }
 }
-
 .section-title{
     margin: 0;
     font-size: 18px;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     position: relative;
-
+    margin-top: -12px;
     &:after{
-        content: "";
+        content: '';
         position: absolute;
-        top: calc(100% + 11px);
-        left: 0;
+        top: calc(100% + 3.5px);
         height: 2px;
         width: 52px;
         background-color: #00a4e5;
+        left: 0;
     }
     &--center{
         text-align: center;
@@ -198,7 +180,6 @@ body{
         }
     }
 }
-
 .story{
     padding: 57px 0;
     &__row{
@@ -214,8 +195,7 @@ body{
         width: 50%;
     }
 }
-
-.text__content{
+.text-content{
     > *:first-child{
         margin-top: 0;
     }
@@ -224,9 +204,10 @@ body{
     }
     h3{
         font-size: 20px;
+        font-weight: bold;
         letter-spacing: 0.01em;
-        margin: 30px 0;
         line-height: normal;
+        margin: 20px 0;
         span{
             color: #16ace8;
         }
@@ -238,13 +219,11 @@ body{
         margin: 30px 0;
     }
 }
-
 .we-do{
     &__row{
         display: flex;
         flex-wrap: wrap;
         margin: -10px;
-        
     }
     &__col{
         width: 33.3%;
@@ -271,7 +250,9 @@ body{
             width: 100%;
             object-fit: cover;
             object-position: center;
-            transition: 0.3s;
+            // object всегда лучше применять для image
+            transition: .3s;
+
         }
         &__content{
             position: relative;
@@ -280,6 +261,7 @@ body{
             box-sizing: border-box;
         }
         &__title{
+           
             font-weight: 800;
             font-size: 24px;
             line-height: 121%;
@@ -287,28 +269,22 @@ body{
             color: #fff;
         }
     }
-
 }
-
 .section-head{
     display: flex;
     align-items: flex-start;
     margin-bottom: 76px;
-
-
     &__desc{
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    font-size: 11px;
-    line-height: 173%;
-    max-width: 406px;
-    margin-left: auto;
-    margin-right: 32px;
-    // не используем джастифай контент чтобы было по макету - 
-    // так как центральный и првавый блоки прижаты вправо
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 173%;
+        letter-spacing: 0.02em;
+        color: #48555b;
+        max-width: 406px;
+        margin-left: auto;
+        margin-right: 32px;
     }
 }
-
 .capab{
     padding: 59px 0;
     box-sizing: border-box;
@@ -322,92 +298,80 @@ body{
         box-sizing: border-box;
         width: 33.3%;
     }
+    
 }
-
 .capab-item{
     padding: 38px 20px;
     box-sizing: border-box;
     border: 1px solid #e6e6e6;
-    height: 100%;
-    // хейт 100% задали чтобы флексовыя колонка растянулась в случае
-    // с добавлением текста чтобы колонки расширились одинаково
+    height: 100%; 
+    // height чтобы все блоки были одинаковой высоты при разном количестве текста
     &__icon{
-        height: 75px;
         width: 65px;
+        height: 75px;
         margin-bottom: 25px;
     }
     &__title{
         margin: 0 0 13px 0;
-        font-size: 16px;
         font-weight: 700;
+        font-size: 16px;
         line-height: 150%;
         letter-spacing: 0.03em;
     }
     &__desc{
-        margin: 0 0 13px 0;
-        font-size: 13px;
         font-weight: 400;
-        line-height: 150%;
+        font-size: 13px;
+        line-height: 177%;
         letter-spacing: 0.01em;
     }
 }
-
 .offer{
-    background-image: url(../img/offerbg.jpg);
+    position: relative;
+    margin-top: 56px;
+    padding: 120px 0 232px;
+    background-image: url(../images/bg.jpg);
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
-    padding: 120px 0 232px;
-    margin-top: 56px;
     text-align: center;
-    position: relative;
 
-    &:before{
-        content: "";
+    &::before{
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 20%;
         background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        // чтоб при уменьшении картинка не обрезалась сверху
-        // а красиво уходила в градиент
     }
-    
 
     &__title{
         max-width: 350px;
-        margin: 0 auto 35px;
+        margin: 0 auto 32px;
+        padding-top: 12px;
         font-size: 30px;
         line-height: 120%;
         letter-spacing: 0.01em;
-        
     }
-
 }
-
-.subscribe{
+.subsribe{
     background-color: #171819;
     padding: 30px 0;
-
     &__row{
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 70px;
     }
-
-    &__title {
+    &__title{
+        margin: 0;
         font-size: 22px;
         letter-spacing: 0.04em;
-        text-align: center;
         color: #fff;
     }
-
     &__form{
         display: flex;
     }
-
     &__input{
         outline: none;
         border: 1px solid #979797;
@@ -417,22 +381,14 @@ body{
         font-size: 14px;
         letter-spacing: 0.01em;
         color: #48555b;
-        // паддинг препятствует прилипанию текста справа при переполнении формы
-        // длинным емаилом
-
     }
 }
-
-
 .footer{
-    
+
     background-color: #141a20;
-    
-    > .container{
+    > .container {
         padding: 42px 15px 50px;
     }
-
-
     &__row{
         display: flex;
         flex-wrap: wrap;
@@ -448,119 +404,97 @@ body{
             width: 16.6%;
         }
     }
-
+    &__title{
+        font-weight: 400;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: #fff;
+        margin: 0 0 15px 0;
+        line-height: 1;
+    }
     &__menu{
         margin-top: -15px;
     }
-
-
-    &__title{
-        color: #fff;
-        font-size: 11px;
-        font-weight: 400;
-        letter-spacing: 0.08em;
-    }
-
     &__list{
-        padding: 0;
         margin: 0;
+        padding: 0;
         list-style: none;
         columns: 3;
-        line-height: 1;
-        
+
         a{
-            font-size: 11px;
             font-weight: 600;
+            font-size: 11px;
             line-height: 227%;
             letter-spacing: 0.08em;
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
         }
-    }
-
-    &__title{
-        font-size: 11px;
-        font-weight: 400;
-        letter-spacing: 0.08em;
-        margin: 0 0 15px 0;
         
-    }
+    }    
     &__logo{
         margin-bottom: 15px;
     }
-
     &__desc{
+        font-weight: 400;
         font-size: 11px;
         line-height: 173%;
         letter-spacing: 0.08em;
         color: #fff;
     }
-
     &__info{
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 145%;
-    letter-spacing: 0.08em;
-    color: #fff;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-
-    p{
-        margin: 0;
-    }
-
-    a{
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 145%;
+        letter-spacing: 0.08em;
         color: #fff;
-        text-decoration: none;
-        &:hover{
-            color: greenyellow;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        p{
+            margin: 0;
+        }
+        a{
+            color: #fff;
+            text-decoration: none;
         }
     }
-
-    }
     &__social{
-        padding-top: 30px;
+        padding-top: 15px;
     }
 }
-
 .social{
     &__list{
         margin: 0;
         padding: 0;
         list-style: none;
-
         display: flex;
         gap: 25px;
     }
-
 }
-
 .copyright{
+    background-color: #171819;
+    padding: 22px 0;
     font-weight: 400;
     font-size: 11px;
     letter-spacing: 0.08em;
-    color: #fff; 
-    background-color: #171819;   
-    padding: 22px 0;
     text-align: center;
+    color: #fff;
 }
+
+
 
 
 @media (max-width:1024px){
     .section-head{
         margin-bottom: 40px;
         flex-direction: column;
-
         &__desc{
             margin: 25px 0 10px;
         }
     }
 }
-
 @media (max-width:768px){
     .footer{
         &__col--w33{
@@ -584,16 +518,13 @@ body{
         &__menu{
             margin-top: 0;
         }
-
         > .container{
             padding: 20px 15px;
         }
     }
-
     .copyright{
         padding: 10px 0;
     }
-
     .capab{
         position: relative;
         overflow: hidden;
@@ -601,8 +532,8 @@ body{
         &__row{
             flex-wrap: nowrap;
             overflow-x: auto;
-            margin: 0 -15px;
             padding: 0 15px;
+            margin: 0 -15px;
             gap: 10px;
             &::-webkit-scrollbar{
                 background-color: transparent;
@@ -615,45 +546,42 @@ body{
             padding: 0;
         }
     }
-
     .hero{
         &__title{
             font-size: 40px;
             line-height: 1.2;
         }
     }
-
     .story{
         padding: 30px 0;
         &__row{
             margin-top: 40px;
-            flex-direction: column;
-            gap: 30px;
+            display: block;
+            // flex-direction: column;
             
         }
         &__left,
         &__right{
             width: 100%;
         }
-    }
-
-    .text__content{
-        h3,
-        p{
-            margin: 15px 0;
+        &__right{
+            margin-top: 30px;
         }
-    }
 
-    .subscribe{
-        &__row{
-            flex-direction: column;
-            gap: 10px;
-        }
     }
-
 }
-
-
-
-
-
+.text-content{
+    h3,
+    p{
+        margin: 15px 0;
+    }
+}
+.subsribe{
+    &__row{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.offer{
+    margin-top: 40px;
+}
